@@ -1,4 +1,4 @@
-﻿import { Component } from "@angular/core";
+﻿import { ApplicationRef, Component } from "@angular/core";
 import { Model } from "./repository.model";
 import { Product } from "./product.model";
 
@@ -8,6 +8,11 @@ import { Product } from "./product.model";
 })
 export class ProductComponent {
     model: Model = new Model();
+
+    constructor(ref: ApplicationRef) {
+        (<any>window).appRef = ref;
+        (<any>window).model = this.model;
+    }
 
     getProductByPosition(position: number): Product {
         return this.model.getProducts()[position];
