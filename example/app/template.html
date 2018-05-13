@@ -1,5 +1,5 @@
 ﻿<template [ngTemplateOutlet]="titleTemplate2"
-          [ngOutletContext]="{title:'Header'}">
+          [ngOutletContext]="{title:'Header', name:'Name1'}">
 </template>
 
 <div class="bg-info p-a-1">
@@ -48,10 +48,11 @@
 <template [ngTemplateOutlet]="titleTemplate">
 </template>
 
-<template #titleTemplate2 let-text="title">
-    <h4 class="p-a-1 bg-success">{{text}}</h4>
+<template #titleTemplate2 let-text="title" let-name="name">
+    <h4 class="p-a-1 bg-success">{{text}}-{{name}}</h4>
 </template>
 
 <template [ngTemplateOutlet]="titleTemplate2"
-          [ngOutletContext]="{title:'Footer'}">
+          [ngOutletContext]="{title:'Footer', name:'Name1'}"
+          >
 </template>
