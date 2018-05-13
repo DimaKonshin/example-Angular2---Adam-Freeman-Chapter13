@@ -9,9 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var repository_model_1 = require("./repository.model");
 var ProductComponent = (function () {
     function ProductComponent() {
+        this.model = new repository_model_1.Model();
+        this.targetName = "Kayak";
     }
+    ProductComponent.prototype.getProductByPosition = function (position) {
+        return this.model.getProducts()[position];
+    };
+    ProductComponent.prototype.getProduct = function (key) {
+        return this.model.getProduct(key);
+    };
+    ProductComponent.prototype.getProducts = function () {
+        return this.model.getProducts();
+    };
+    ProductComponent.prototype.getProductCount = function () {
+        return this.getProducts().length;
+    };
     ProductComponent = __decorate([
         core_1.Component({
             selector: "app",
