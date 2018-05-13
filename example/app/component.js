@@ -29,6 +29,9 @@ var ProductComponent = (function () {
     ProductComponent.prototype.getProductCount = function () {
         return this.getProducts().length;
     };
+    ProductComponent.prototype.getKey = function (index, product) {
+        return product.id;
+    };
     ProductComponent = __decorate([
         core_1.Component({
             selector: "app",
