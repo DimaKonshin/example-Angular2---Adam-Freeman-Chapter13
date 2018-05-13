@@ -1,4 +1,8 @@
-﻿<div class="bg-info p-a-1">
+﻿<template [ngTemplateOutlet]="titleTemplate2"
+          [ngOutletContext]="{title:'Header'}">
+</template>
+
+<div class="bg-info p-a-1">
     There are {{getProductCount()}} products.
 </div>
 <div *ngIf="getProductCount() > 4" class="bg-info p-a-1 m-t-1">
@@ -14,13 +18,16 @@
     <span *ngSwitchDefault>This is the default</span>
 </div>
 
+
+
 <div class="bg-info p-a-1 m-t-1" [ngSwitch]="getProduct(1).name">
     <span *ngSwitchCase="targetName">Kayak</span>
     <span *ngSwitchCase="'Lifejacket'">Lifejacket</span>
     <span *ngSwitchDefault>Other Product</span>
 </div>
 
-<template [ngTemplateOutlet]="titleTemplate"></template>
+<template [ngTemplateOutlet]="titleTemplate">
+</template>
 
 <table class="table table-sm table-bordered m-t-1">
     <tr><th></th><th>Name</th><th>Category</th><th>Price</th></tr>
@@ -38,4 +45,13 @@
     <h4 class="p-a-1 bg-success">Repeated Content</h4>
 </template>
 
-<template [ngTemplateOutlet]="titleTemplate"></template>
+<template [ngTemplateOutlet]="titleTemplate">
+</template>
+
+<template #titleTemplate2 let-text="title">
+    <h4 class="p-a-1 bg-success">{{text}}</h4>
+</template>
+
+<template [ngTemplateOutlet]="titleTemplate2"
+          [ngOutletContext]="{title:'Footer'}">
+</template>
